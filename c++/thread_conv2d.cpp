@@ -43,11 +43,10 @@ void ThreadedConv2D(cv::Mat& input_image, cv::Mat& output_img, std::vector<std::
             }
         }
     }
-
 }
 
-int main(){
-    std::string path = "../images/test.jpeg"; 
+int main(int argc, char* argv[]){
+    std::string path = argv[1]; 
     cv::Mat image = cv::imread(path); 
 
     //average blur kernel 

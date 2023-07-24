@@ -1,0 +1,4 @@
+/home/vimal/Edge_ai/Convolution/c++/build/CMakeFiles/thread_conv2d.dir
+/home/vimal/Edge_ai/Convolution/c++/build/CMakeFiles/conv2d.dir
+/home/vimal/Edge_ai/Convolution/c++/build/CMakeFiles/edit_cache.dir
+/home/vimal/Edge_ai/Convolution/c++/build/CMakeFiles/rebuild_cache.dir
