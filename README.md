@@ -12,4 +12,4 @@ In Image Processing, Convolution layers are the basic operator for performing va
 ## Project Overview
 The logic and math of convolution layer are replicated in the programming languages such as C++ and Python. In order to improve the performance and effiency of the computation, the multi-threaded C++ program was implemented and the performance was compared with the non threaded C++ and python codes. 
 
-![alt text](images/conv.png)
+![alt text](images/conv2d.png)
