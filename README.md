@@ -32,3 +32,4 @@ the main python script takes the image path from the commandline and distributes
 
 ### Note
 - The input image is assumed to be 3 or Multi-channel input 
+- padding is done by the formula (kernel - 1) / 2
