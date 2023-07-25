@@ -26,4 +26,4 @@ The image explains the application of Convolution-2D over multi-channel image an
 Entire project can be executed by a single command which holds the underlying 3 different implementation of Convolution 2D<br/>
 
 ```Bash
-$ python3 main.py <image path>```
+$ python3 main.py <image path>
