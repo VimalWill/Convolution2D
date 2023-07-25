@@ -7,16 +7,21 @@ import subprocess
 
 
 def automated_execution(command):
-    result = subprocess.run(command, capture_output=True, text=True)
-    if result.returncode == 0:
-        print("Executed Successfully")
-        print("Ouput:")
-        print(result.stdout)
+    try:
+        result = subprocess.run(command, capture_output=True, text=True)
+        if result.returncode == 0:
+            print("Executed Successfully")
+            print("Ouput:")
+            print(result.stdout)
 
-    else:
-        print("Execution Failed")
-        print("Error Message:")
-        print(result.stderr)
+        else:
+            print("Execution Failed")
+            print("Error Message:")
+            print(result.stderr)
+    except FileNotFoundError:
+        print("check the executable file path")
+    except:
+        print("unexpected error encounted")
 
 #get input image parameters 
 path = sys.argv[1]
