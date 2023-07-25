@@ -1,6 +1,7 @@
 #include <omp.h>
 #include <opencv2/opencv.hpp>
 #include <bits/stdc++.h>
+#include <chrono>
 
 void letterBox(cv::Mat& input_img, cv::Mat& output_image, const int kernel_h, const int kernel_w){
 
@@ -32,7 +33,6 @@ void ThreadedConv2D(cv::Mat& input_image, cv::Mat& output_img, std::vector<std::
             for(int j=0; j<padded_img.cols-kernel_w+1; j++){
                 //printf("threadId = %d \n", omp_get_thread_num());
                 float sum = 0.0;
-                #pragma omp parallel for reduction(+ : sum)
                 for(int m=0; m<kernel_h; m++){
                     for(int n=0; n<kernel_w; n++){
                         //printf("threadId = %d \n", omp_get_thread_num());
@@ -43,6 +43,7 @@ void ThreadedConv2D(cv::Mat& input_image, cv::Mat& output_img, std::vector<std::
             }
         }
     }
+
 }
 
 int main(int argc, char* argv[]){
@@ -58,11 +59,22 @@ int main(int argc, char* argv[]){
     }; 
 
     cv::Mat Output_img(image.rows, image.cols, image.type());
-    ThreadedConv2D(image, Output_img, kernel);
 
-    cv::imshow("Output Image", Output_img);
-    cv::waitKey(0);
-    cv::destroyAllWindows();
+    auto start_time = std::chrono::high_resolution_clock::now();
+    ThreadedConv2D(image, Output_img, kernel);
+    auto end_time = std::chrono::high_resolution_clock::now();
+
+    std::chrono::duration<double> latency = end_time - start_time; 
+
+    // cv::imshow("Output Image", Output_img);
+    // cv::waitKey(0);
+    // cv::destroyAllWindows();
+
+    /*write the output as .jpg image*/
+    std::string output_path = "../Convolution/outputs/threadconv2d.png";
+    cv::imwrite(output_path, Output_img);
+    std::cout << "Convoluted image saved at" << output_path << std::endl;
+    std::cout << "Total Run-Time:" << latency.count() << std::endl;
 
     return 0;
 }

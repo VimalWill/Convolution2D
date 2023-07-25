@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.26)
 project(Conv2D)
 
-set(CMAKE_CXX_STANDARD 14
-)
+set(CMAKE_CXX_STANDARD 14)
+
 find_package(OpenMP REQUIRED)
 find_package(OpenCV 4 REQUIRED)
 

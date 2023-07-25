@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 #include <opencv2/opencv.hpp>
-#include <opencv2/core.hpp>
+#include <chrono>
 
 void letterBox(cv::Mat& input_img, cv::Mat& output_img, int kernel_h, int kernel_w){
     /*function to pad the image*/
@@ -52,11 +52,19 @@ int main(int argc, char* argv[]){
     }; 
 
     cv::Mat Output_img(image.rows, image.cols, image.type());
+    auto start_time = std::chrono::high_resolution_clock::now();
     Conv2D(image, Output_img, kernel);
+    auto end_time = std::chrono::high_resolution_clock::now();
 
-    cv::imshow("Output Image", Output_img);
-    cv::waitKey(0);
-    cv::destroyAllWindows();
+    std::chrono::duration<double> latency = end_time - start_time; 
+
+    // cv::imshow("Output Image", Output_img);
+    // cv::waitKey(0);
+    // cv::destroyAllWindows();
+    std::string output_path = "../Convolution/outputs/conv2d.png";
+    cv::imwrite(output_path, Output_img); 
+    std::cout << "Convoluted image saved at" << output_path << std::endl;
+    std::cout << "Total Run-Time:" << latency.count() << std::endl;
 
     return 0;
 }

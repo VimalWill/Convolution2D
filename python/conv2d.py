@@ -1,7 +1,12 @@
 import cv2 
 import math
 import numpy as np 
+import sys
+import time
 
+def nanoseconds_to_seconds(nanoseconds):
+    seconds = nanoseconds / 1_000_000_000
+    return seconds
 
 def Conv2D(img, kernel):
     cvt_img = img
@@ -26,7 +31,7 @@ def Conv2D(img, kernel):
 
 
 def main():
-    path = "../images/test1.jpg"
+    path = sys.argv[1]
     image = cv2.imread(path)
 
     kernel = np.array([
@@ -35,10 +40,19 @@ def main():
         [1/9, 1/9, 1/9]
     ])
 
+    n1 = time.time_ns()
     conv_img = Conv2D(image, kernel)
-    cv2.imshow("frame", conv_img)
-    cv2.waitKey(-1)
-    cv2.destroyAllWindows()
+    n2 = time.time_ns()
+    n = n2 - n1
+    sec = nanoseconds_to_seconds(n)
+    # cv2.imshow("frame", conv_img)
+    # cv2.waitKey(-1)
+    # cv2.destroyAllWindows()
+    output_path = "../Convolution/outputs/python_conv2d.png"
+    cv2.imwrite(output_path, conv_img)
+    print("Convoluted Image at", output_path)
+    print("Total Run-Time:", sec)
+    
 
 if __name__ == "__main__":
     main()
