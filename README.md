@@ -22,6 +22,14 @@ The image explains the application of Convolution-2D over multi-channel image an
 3. Basic blur kernel of 3 x 3 is used in the implementation 
 4. Multi-threading / parallelism is handled my the OpenMP library 
 
+
+### Requirements
+- For python install the below required packages in your workspace 
+```Bash
+$ pip3 install -r requirements.txt
+```
+- The C++ version of code requirement OpenCV header files, which can be build from source
+
 ### Project Execution
 Entire project can be executed by a single command which holds the underlying 3 different implementation of Convolution 2D<br/>
 
