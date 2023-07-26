@@ -34,7 +34,7 @@ $ pip3 install -r requirements.txt
 Entire project can be executed by a single command which holds the underlying 3 different implementation of Convolution 2D<br/>
 
 ```Bash
-$ python3 main.py ../Convolution/images/sample.jpg
+$ python3 main.py ../Convolution2D/images/sample.jpg
 ```
 the main python script takes the image path from the commandline and distributes the image source to the underlying codes. The entire process of execution is automated and the "Convoluted Images" will be saved in the <b>output</b> folder with the executed code type as the name of it
 

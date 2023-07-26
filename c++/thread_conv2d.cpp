@@ -71,7 +71,7 @@ int main(int argc, char* argv[]){
     // cv::destroyAllWindows();
 
     /*write the output as .jpg image*/
-    std::string output_path = "../Convolution/outputs/threadconv2d.png";
+    std::string output_path = "../Convolution2D/outputs/threadconv2d.png";
     cv::imwrite(output_path, Output_img);
     std::cout << "Convoluted image saved at" << output_path << std::endl;
     std::cout << "Total Run-Time:" << latency.count() << std::endl;

@@ -48,7 +48,7 @@ def main():
     # cv2.imshow("frame", conv_img)
     # cv2.waitKey(-1)
     # cv2.destroyAllWindows()
-    output_path = "../Convolution/outputs/python_conv2d.png"
+    output_path = "../Convolution2D/outputs/python_conv2d.png"
     cv2.imwrite(output_path, conv_img)
     print("Convoluted Image at", output_path)
     print("Total Run-Time:", sec)
